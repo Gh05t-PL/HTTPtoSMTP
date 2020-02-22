@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Model\MailSendRequest;
 use App\Utils\ValidationService;
-use App\Validator\StartsWith;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\Transport;
@@ -12,13 +11,11 @@ use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class MailCatcherController extends AbstractController implements IJsonRequestController
 {
 	/**
 	 * @Route("/v1/mail/catcher")
-	 * @param ValidatorInterface $validator
 	 * @param ValidationService $requestValidator
 	 * @param Request $request
 	 * @param SerializerInterface $serializer
@@ -27,7 +24,6 @@ class MailCatcherController extends AbstractController implements IJsonRequestCo
 	 * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
 	 */
 	public function mailCatcher(
-		ValidatorInterface $validator,
 		ValidationService $requestValidator,
 		Request $request,
 		SerializerInterface $serializer
