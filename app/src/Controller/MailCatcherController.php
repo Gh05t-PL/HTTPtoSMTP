@@ -120,7 +120,8 @@ class MailCatcherController extends AbstractController implements IJsonRequestCo
 				new Assert\NotBlank(),
 				new Assert\Type('string'),
 				new Assert\Url([
-					'protocols' => ['smtp']
+					'protocols' => ['smtp'],
+					'message' => 'This value is not a valid DSN.'
 				])
 			],
 		]);
