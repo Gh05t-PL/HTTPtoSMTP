@@ -37,7 +37,6 @@ class MailCatcherController extends AbstractController implements IJsonRequestCo
 		if ( count($violations) > 0 )
 			return $this->json([
 				'errors' => $violations,
-				'path' => 'src/Controller/MailCatcherController.php',
 			]);
 
 
