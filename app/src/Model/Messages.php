@@ -10,6 +10,10 @@ use Symfony\Component\Mime\Header\UnstructuredHeader;
 
 class Messages
 {
+	const TYPE_TWIG = 'twig';
+	const TYPE_TEXT = 'text';
+	const TYPE_HTML = 'html';
+
 	/**
 	 * @var string
 	 */
@@ -30,6 +34,10 @@ class Messages
 	 * @var UnstructuredHeader[]
 	 */
 	private $headers;
+	/**
+	 * @var string
+	 */
+	private $type;
 
 	/**
 	 * @return string
@@ -55,10 +63,6 @@ class Messages
 	 */
 	public function getTo(): array
 	{
-//		$temp = [];
-//		foreach ( $this->to as $item ) {
-//			$temp []= Address::createArray($this->to);
-//		}
 		return Address::createArray($this->to);
 	}
 
@@ -127,6 +131,25 @@ class Messages
 	public function setHeaders(array $headers): Messages
 	{
 		$this->headers = $headers;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getType(): string
+	{
+		return $this->type;
+	}
+
+	/**
+	 * @param string $type
+	 *
+	 * @return Messages
+	 */
+	public function setType(string $type): Messages
+	{
+		$this->type = $type;
 		return $this;
 	}
 }
